@@ -6,8 +6,8 @@ public class Board {
 	void create(){//cria o tabuleiro inicial
 		tabela[0][0]= new Tower(1); tabela[0][7]= new Tower(1);
 		tabela[0][1]= new Horse(1); tabela[0][6]= new Horse(1);
-		tabela[0][2]= new Bishop(1); tabela[0][5]=new Bishop(1);
-		tabela[0][3]=new Queen(1); tabela[0][4]= new King(1);
+		tabela[0][2]= new Bishop(1); tabela[0][5]= new Bishop(1);
+		tabela[0][3]= new Queen(1); tabela[0][4]= new King(1);
 		
 		tabela[7][0]= new Tower(0); tabela[7][7]= new Tower(0);
 		tabela[7][1]= new Horse(0); tabela[7][6]= new Horse(0);
@@ -48,4 +48,26 @@ public class Board {
 		}
 		System.out.println("  a b c d e f g h \n");
 	}
+	void move(int[] com) {
+		if(tabela[com[0]][com[1]].gtClass()==1 && com[4]!= 0) {
+			if(tabela[com[0]][com[1]].color==0 && com[2]==0) {
+				if(com[4]==2) tabela[com[2]][com[3]] = new Horse(0);
+				if(com[4]==3) tabela[com[2]][com[3]] = new Bishop(0);
+				if(com[4]==4) tabela[com[2]][com[3]] = new Tower(0);
+				if(com[4]==5) tabela[com[2]][com[3]] = new Queen(0);
+			}
+			if(tabela[com[0]][com[1]].color==0 && com[2]==7) {
+				if(com[4]==2) tabela[com[2]][com[3]] = new Horse(1);
+				if(com[4]==3) tabela[com[2]][com[3]] = new Bishop(1);
+				if(com[4]==4) tabela[com[2]][com[3]] = new Tower(1);
+				if(com[4]==5) tabela[com[2]][com[3]] = new Queen(1);
+			}
+		}	
+		else {
+			tabela[com[2]][com[3]]=tabela[com[0]][com[1]];
+		}
+		tabela[com[0]][com[1]]= new Piece(-1);
+	}
+
 }
+
