@@ -11,11 +11,6 @@ public class Tower extends Piece {
 	}
 	
 	boolean verif(int[] com, Board tab) {
-		///Verificar se anda em linha reta, e se nao ha uma peça aliada no caminho
-		//Primeiro: ver se com[0]==com[2] ou se com[1]==com[3];
-		//Depois, se com[0]==com[2]-> faz um loop que verifica as posicoes table[[com[0]][com[1]] ate [com[0]][com[3]]; ou seja, i=com[1] 
-		//e aumenta while <=com[3] (na verdade precisa ver se inicial eh menor que o final, se nao for, tem que diminuir ele)
-		//Se achar algum aliado, resorna false
 		if ((tab.tabela[com[2]][com[3]]).color==this.color) { //A pos final esta ocupada por uma peca aliada
 			return false;
 		}
@@ -33,7 +28,7 @@ public class Tower extends Piece {
 				i--;
 			}
 			while (i!=com[3]) {
-				if ((tab.tabela[com[0]][com[i]]).gtClass()!=0) {
+				if ((tab.tabela[com[0]][i]).gtClass()!=0) {
 					return false;
 				}
 				if (i<com[3]) {
@@ -55,7 +50,7 @@ public class Tower extends Piece {
 				i--;
 			}
 			while (i!=com[2]) {
-				if ((tab.tabela[com[i]][com[1]]).gtClass()!=0) {
+				if ((tab.tabela[i][com[1]]).gtClass()!=0) {
 					return false;
 				}
 				if (i<com[2]) {

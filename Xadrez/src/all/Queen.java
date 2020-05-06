@@ -15,7 +15,7 @@ public class Queen extends Piece {
 			return false;
 		}
 		
-		if ((com[0]!=com[2] && com[1]!=com[3]) || (Math.abs(com[1]-com[3])!=Math.abs(com[0]-com[2]))) { //Nao andou em linha reta nem em diagonal
+		if ((com[0]!=com[2] && com[1]!=com[3]) && (Math.abs(com[1]-com[3])!=Math.abs(com[0]-com[2]))) { //Nao andou em linha reta nem em diagonal
 			return false;
 		}
 		
@@ -29,7 +29,7 @@ public class Queen extends Piece {
 					i--;
 				}
 				while (i!=com[3]) {
-					if ((tab.tabela[com[0]][com[i]]).gtClass()!=0) {
+					if ((tab.tabela[com[0]][i]).gtClass()!=0) {
 						return false;
 					}
 					if (i<com[3]) {
@@ -51,7 +51,7 @@ public class Queen extends Piece {
 					i--;
 				}
 				while (i!=com[2]) {
-					if ((tab.tabela[com[i]][com[1]]).gtClass()!=0) {
+					if ((tab.tabela[i][com[1]]).gtClass()!=0) {
 						return false;
 					}
 					if (i<com[2]) {
