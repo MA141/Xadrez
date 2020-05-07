@@ -9,17 +9,11 @@ public class TheMain {
 		tab.show();
 		
 		CSVReader test = new CSVReader();
-		test.setDataSource("C:\\Users\\Artur\\Desktop\\UNICAMP\\2020-1\\MC322\\lab7\\Xadrez\\teste.csv");
+		test.setDataSource("_####_\\Xadrez\\xadrez.csv");
 		String commands[] = test.requestCommands();
 		Converter ini = new Converter();
 		int [][] coords = ini.conv(commands);
 		
-		for(int k = 0; k<coords.length; k++) {
-			for(int l = 0; l<5; l++) {
-				System.out.print(coords[k][l]+"  ");
-			}
-			System.out.println("");
-		}
 
 		moveAll(coords, tab);
 	}
